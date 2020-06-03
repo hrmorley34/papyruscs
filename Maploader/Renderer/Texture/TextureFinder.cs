@@ -21,75 +21,75 @@ namespace Maploader.Renderer.Texture
             {"minecraft:redstone_torch", true},
             {"minecraft:sapling", true},
             {"minecraft:bamboo_sapling", true},
-            {"minecraft:double_plant", true },
-            {"minecraft:double_plant_grass", true },
-            {"minecraft:double_plant_bottom", true },
-            {"minecraft:double_plant_top", true },
-            {"minecraft:hopper", true },
-            {"minecraft:vine", true },
-            {"minecraft:yellow_flower", true },
-            {"minecraft:red_flower", true },
-            {"minecraft:fence", true },
-            {"minecraft:fence_gate", true },
-            {"minecraft:spruce_fence_gate", true },
-            {"minecraft:birch_fence_gate", true },
-            {"minecraft:acacia_fence_gate", true },
-            {"minecraft:jungle_fence_gate", true },
-            {"minecraft:dark_oak_fence_gate", true },
-            {"minecraft:cobblestone_wall", true },
+            {"minecraft:double_plant", true},
+            {"minecraft:double_plant_grass", true},
+            {"minecraft:double_plant_bottom", true},
+            {"minecraft:double_plant_top", true},
+            {"minecraft:hopper", true},
+            {"minecraft:vine", true},
+            {"minecraft:yellow_flower", true},
+            {"minecraft:red_flower", true},
+            {"minecraft:fence", true},
+            {"minecraft:fence_gate", true},
+            {"minecraft:spruce_fence_gate", true},
+            {"minecraft:birch_fence_gate", true},
+            {"minecraft:acacia_fence_gate", true},
+            {"minecraft:jungle_fence_gate", true},
+            {"minecraft:dark_oak_fence_gate", true},
+            {"minecraft:cobblestone_wall", true},
 
-            {"minecraft:stone_button", true },
-            {"minecraft:redstone_wire", true },
-            {"minecraft:kelp", true },
-            {"minecraft:seagrass", true },
-            {"minecraft:wheat", true },
-            {"minecraft:ladder", true },
-            {"minecraft:glass", true },
-            {"minecraft:stained_glass", true },
-            {"minecraft:glass_pane", true },
-            {"minecraft:stained_glass_pane", true },
-            {"minecraft:rail", true },
-            {"minecraft:golden_rail", true },
-            {"minecraft:detector_rail", true },
-            {"minecraft:activator_rail", true },
-            {"minecraft:iron_bars", true },
-            {"minecraft:end_rod", true },
-            {"minecraft:wall_sign", true },
-            {"minecraft:red_mushroom", true },
-            {"minecraft:brown_mushroom", true },
-            {"minecraft:fire", true },
-            {"minecraft:pumpkin_stem", true },
-            {"minecraft:melon_stem", true },
-            {"minecraft:carrots", true },
-            {"minecraft:potatoes", true },
-            {"minecraft:anvil", true },
-            {"minecraft:cauldron", true },
-            {"minecraft:brewing_stand", true },
-            {"minecraft:frame", true },
-            {"minecraft:deadbush", true },
-            {"minecraft:sweet_berry_bush", true },
-            {"minecraft:web", true },
-            {"minecraft:conduit", true },
-            {"minecraft:flower_pot", true },
-            {"minecraft:bamboo", true },
-            {"minecraft:leaves", true },
-            {"minecraft:leaves2", true },
+            {"minecraft:stone_button", true},
+            {"minecraft:redstone_wire", true},
+            {"minecraft:kelp", true},
+            {"minecraft:seagrass", true},
+            {"minecraft:wheat", true},
+            {"minecraft:ladder", true},
+            {"minecraft:glass", true},
+            {"minecraft:stained_glass", true},
+            {"minecraft:glass_pane", true},
+            {"minecraft:stained_glass_pane", true},
+            {"minecraft:rail", true},
+            {"minecraft:golden_rail", true},
+            {"minecraft:detector_rail", true},
+            {"minecraft:activator_rail", true},
+            {"minecraft:iron_bars", true},
+            {"minecraft:end_rod", true},
+            {"minecraft:wall_sign", true},
+            {"minecraft:red_mushroom", true},
+            {"minecraft:brown_mushroom", true},
+            {"minecraft:fire", true},
+            {"minecraft:pumpkin_stem", true},
+            {"minecraft:melon_stem", true},
+            {"minecraft:carrots", true},
+            {"minecraft:potatoes", true},
+            {"minecraft:anvil", true},
+            {"minecraft:cauldron", true},
+            {"minecraft:brewing_stand", true},
+            {"minecraft:frame", true},
+            {"minecraft:deadbush", true},
+            {"minecraft:sweet_berry_bush", true},
+            {"minecraft:web", true},
+            {"minecraft:conduit", true},
+            {"minecraft:flower_pot", true},
+            {"minecraft:bamboo", true},
+            {"minecraft:leaves", true},
+            {"minecraft:leaves2", true},
 
-            {"minecraft:wooden_door", true },
-            {"minecraft:spruce_door", true },
-            {"minecraft:birch_door", true },
-            {"minecraft:jungle_door", true },
-            {"minecraft:acacia_door", true },
-            {"minecraft:dark_oak_door", true },
-            {"minecraft:iron_door", true },
+            {"minecraft:wooden_door", true},
+            {"minecraft:spruce_door", true},
+            {"minecraft:birch_door", true},
+            {"minecraft:jungle_door", true},
+            {"minecraft:acacia_door", true},
+            {"minecraft:dark_oak_door", true},
+            {"minecraft:iron_door", true},
 
-            {"minecraft:trapdoor", true },
-            {"minecraft:spruce_trapdoor", true },
-            {"minecraft:birch_trapdoor", true },
-            {"minecraft:jungle_trapdoor", true },
-            {"minecraft:acacia_trapdoor", true },
-            {"minecraft:dark_oak_trapdoor", true },
-            {"minecraft:iron_trapdoor", true },
+            {"minecraft:trapdoor", true},
+            {"minecraft:spruce_trapdoor", true},
+            {"minecraft:birch_trapdoor", true},
+            {"minecraft:jungle_trapdoor", true},
+            {"minecraft:acacia_trapdoor", true},
+            {"minecraft:dark_oak_trapdoor", true},
+            {"minecraft:iron_trapdoor", true},
 
             {"minecraft:standing_sign", true},
             {"minecraft:spruce_standing_sign", true},
@@ -113,7 +113,7 @@ namespace Maploader.Renderer.Texture
             {"minecraft:bell", true},
             {"minecraft:standing_banner", true},
 
-            { "minecraft:wooden_button", true},
+            {"minecraft:wooden_button", true},
             {"minecraft:spruce_button", true},
             {"minecraft:birch_button", true},
             {"minecraft:jungle_button", true},
@@ -221,7 +221,6 @@ namespace Maploader.Renderer.Texture
 
                     return null;
 
-
                 case "wooden_slab":
                     return GetTexture("planks", data);
                 case "double_wooden_slab":
@@ -229,7 +228,6 @@ namespace Maploader.Renderer.Texture
 
                 case "prismarine_bricks_stairs":
                     return GetTexture("prismarine_bricks", 0);
-
                 case "oak_stairs":
                     return GetTexture("planks", 0); // data = direction
                 case "brick_stairs":
@@ -266,10 +264,8 @@ namespace Maploader.Renderer.Texture
                     return GetTexture("mossy_stone_brick", 0);
                 case "smooth_sandstone_stairs":
                     return GetTexture("smooth_sandstone", 0);
-
                 case "red_sandstone_stairs":
                     return GetTexture("smooth_red_sandstone", 0);
-
                 case "purpur_stairs":
                     return GetTexture("purpur_block_top", 0);
 
@@ -291,7 +287,6 @@ namespace Maploader.Renderer.Texture
                         case 0:
                             return GetTexture("double_plant_bottom", data & 0xF7);
                     }
-
                     return null;
 
                 case "tnt":
@@ -320,7 +315,6 @@ namespace Maploader.Renderer.Texture
                         case 9:
                             return GetTexture("rail_normal_turned", data).Rotate(RotateFlip.Rotate270FlipNone);
                     }
-
                     return null;
 
                 case "golden_rail":
@@ -328,15 +322,11 @@ namespace Maploader.Renderer.Texture
                         return RenderRail(data & 0xF7, "rail_golden_powered");
                     else
                         return RenderRail(data, "rail_golden");
-
                 case "activator_rail":
                     if ((data & 8) == 8)
                         return RenderRail(data & 0xF7, "rail_activator");
                     else
                         return RenderRail(data, "rail_activator");
-
-
-
                 case "detector_rail":
                     if ((data & 8) == 8)
                         return RenderRail(data & 0xF7, "rail_detector_powered");
@@ -397,7 +387,6 @@ namespace Maploader.Renderer.Texture
                         case BlockFace.East:
                             return GetTexture("observer_top", 0, null, RotateFlip.Rotate270FlipNone);
                     }
-
                     return GetTexture("observer_top", data);
 
                 case "dropper":
@@ -448,13 +437,13 @@ namespace Maploader.Renderer.Texture
                     return GetTexture("planks", data).Translate(1, 1, 14, 14);
                 case "spruce_pressure_plate":
                     return GetTexture("spruce_planks", data).Translate(1, 1, 14, 14);
+
                 case "light_weighted_pressure_plate":
                     return GetTexture("gold_block", data).Translate(1, 1, 14, 14);
                 case "heavy_weighted_pressure_plate":
                     return GetTexture("iron_block", data).Translate(1, 1, 14, 14);
                 case "stone_pressure_plate":
                     return GetTexture("stone", data).Translate(1, 1, 14, 14);
-                    ;
 
                 case "frame":
                     return RenderFrame(data, "sign");
@@ -493,6 +482,7 @@ namespace Maploader.Renderer.Texture
                     return GetTexture("planks", data, new TextureTranslation(
                         new Rect(5, 5, 6, 6),
                         new Rect(0, 0, 16, 16)));
+
                 case "podzol":
                     return GetTexture("dirt_podzol_top", data);
                 case "grass":
@@ -501,24 +491,22 @@ namespace Maploader.Renderer.Texture
                     return GetTexture("seagrass_carried", data);
                 case "tallgrass":
                     return GetTexture("tallgrass_carried", data);
-
                 case "grass_path":
                     return GetTexture("grass_path_top", data);
+
                 case "lit_pumpkin":
                     return GetTexture("pumpkin_top", data);
                 case "pumpkin":
                     return GetTexture("pumpkin_top", data);
                 case "carved_pumpkin":
                     return GetTexture("pumpkin_top", data);
+
                 case "torch":
                     return GetTexture("torch_on", data);
-
                 case "crafting_table":
                     return GetTexture("crafting_table_top", data);
                 case "brick_block":
                     return GetTexture("brick", data);
-
-
                 case "chest":
                     return GetTexture("chest_inventory_top", data);
                 case "snow_layer":
@@ -541,10 +529,6 @@ namespace Maploader.Renderer.Texture
                     return GetTexture("dried_kelp_block_top", data);
                 case "stained_hardened_clay":
                     return GetTexture("stained_clay", data);
-
-
-
-
                 case "end_portal_frame":
                     return GetTexture("endframe_top", 0);
 
@@ -577,6 +561,7 @@ namespace Maploader.Renderer.Texture
                     return RenderButton(data, "birch_planks");
                 case "jungle_button":
                     return RenderButton(data, "jungle_planks");
+
                 case "wall_banner":
                 case "standing_banner":
                     return RenderSign(data, "sign");
@@ -597,10 +582,8 @@ namespace Maploader.Renderer.Texture
 
                 case "quartz_block":
                     return GetTexture("quartz_block_top", data);
-
                 case "seaLantern":
                     return GetTexture("sea_lantern", data);
-
                 case "purpur_block":
                     return GetTexture("purpur_block_side", data);
 
@@ -609,15 +592,14 @@ namespace Maploader.Renderer.Texture
                             new Rect(0, 0, 4, 4),
                             new Rect(6, 6, 4, 4));
 
-
                 case "powered_comparator":
                     return GetTexture("comparator_up", data);
                 case "unpowered_comparator":
                     return GetTexture("comparator_up", data);
-
                 case "pistonArmCollision":
                 case "piston":
                     return GetTexture("piston_top", data);
+
                 case "jukebox":
                     return GetTexture("jukebox_top", data);
                 case "stonecutter_block":
@@ -631,14 +613,13 @@ namespace Maploader.Renderer.Texture
                     return GetTexture("cartography_table_top", data);
                 case "fletching_table":
                     return GetTexture("fletching_table_top", data);
+
                 case "redstone_lamp":
                     return GetTexture("redstone_lamp_off", data);
                 case "lit_redstone_lamp":
                     return GetTexture("redstone_lamp_on", data);
-
                 case "sticky_piston":
                     return GetTexture("piston_top_sticky", data);
-
 
                 case "undyed_shulker_box":
                     return GetTexture("undyed_shulker_box_top", data);
@@ -647,34 +628,25 @@ namespace Maploader.Renderer.Texture
                     return GetTexture("redsandstone_top", data);
                 case "sandstone":
                     return GetTexture("sandstone_top", data);
-
                 case "stone_slab":
                     return GetTexture("stone_slab_top", data);
-
                 case "stone_slab2":
                     return GetTexture("stone_slab_top_2", data);
                 case "double_stone_slab2":
                     return GetTexture("stone_slab_top_2", data);
                 case "stone_slab3":
-
                     return GetTexture("stone_slab_top_3", data);
                 case "double_stone_slab3":
                     return GetTexture("stone_slab_top_3", data);
-
                 case "stone_slab4":
                     return GetTexture("stone_slab_top_4", data);
                 case "double_stone_slab4":
                     return GetTexture("stone_slab_top_4", data);
-
-
                 case "double_stone_slab":
                     return GetTexture("stone_slab_top", data);
 
-
-
                 case "bone_block":
                     return GetTexture("bone_block_top", data);
-
 
                 case "mycelium":
                     return GetTexture("mycelium_top", data);
@@ -692,29 +664,31 @@ namespace Maploader.Renderer.Texture
 
                 case "powered_repeater":
                     return GetTexture("repeater_up", data);
-
                 case "unlit_redstone_torch":
                     return GetTexture("redstone_torch_off", data);
 
                 case "lit_furnace":
-                    return GetTexture("redstone_torch_off", data);
+                    return GetTexture("furnace_top", data);
 
                 case "concrete":
                     return GetTexture("concrete", data);
 
                 case "trapped_chest":
                     return GetTexture("chest_inventory_top", data);
+
                 case "polished_diorite_stairs":
                     return GetTexture("polished_diorite", data);
-
                 case "polished_andesite_stairs":
                     return GetTexture("polished_andesite", data);
                 case "polished_granite_stairs":
                     return GetTexture("polished_granite", data);
                 case "diorite_stairs":
                     return GetTexture("diorite", data);
+                case "andesite_stairs":
+                    return GetTexture("andesite", data);
                 case "granite_stairs":
                     return GetTexture("granite", data);
+
                 /* LEAVES */
                 case "leaves":
                     return GetTexture("leaves_carried", data & 0xF7);
@@ -746,7 +720,7 @@ namespace Maploader.Renderer.Texture
                     return GetTexture((data & 8) == 0 ? "log_top" : "log_side", data & 3);
                 case "log2":
                     return GetTexture((data & 8) == 0 ? "log_top2" : "log_side2", data & 3);
-              
+
                 case "coral_fan_hang":
                     return GetTexture("coral_fan_hang_a", data);
                 case "scaffolding":
@@ -852,14 +826,14 @@ namespace Maploader.Renderer.Texture
             }
             switch (data)
             {
-                
+
                 case 1:
                     return t.Translate(
                         new Rect(6, 6, 4, 4),
                         new Rect(6, 6, 4, 4));
                 case 2:
                     return t.Rotate(RotateFlip.Rotate180FlipNone);
-              
+
                 case 3:
                     return t.Rotate(RotateFlip.RotateNoneFlipNone);
                 case 4:
@@ -925,7 +899,7 @@ namespace Maploader.Renderer.Texture
                                 new Rect(0, 6, 10, 4),
                                 new Rect(6, 12, 10, 4))
                                 .Rotate(RotateFlip.Rotate180FlipNone);
-                        
+
                 case 7:
                     return GetTexture(texture, 0).Translate(
                                new Rect(0, 6, 10, 4),
@@ -990,7 +964,7 @@ namespace Maploader.Renderer.Texture
                 {
                     graphics.RotateFlip(b, info.Rotation);
                 }
-                
+
                 if (!Cache.ContainsKey(info))
                 {
                     Cache.Add(info, b);
