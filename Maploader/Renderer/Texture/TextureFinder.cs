@@ -287,7 +287,7 @@ namespace Maploader.Renderer.Texture
                 {
                     // TODO: fix bed colours
                     int headBit = (int)data.GetValueOrDefault("head_piece_bit", 0);
-                    RotateFlip rot = RotateFromDirection((int)data["direction"] - 1);
+                    RotateFlip rot = RotateFromDirection(((int)data["direction"] + 3) % 4);
                     return CreateTexture(headBit != 0
                                     ? "textures/blocks/bed_head_top"
                                     : "textures/blocks/bed_feet_top")
@@ -314,21 +314,21 @@ namespace Maploader.Renderer.Texture
                 case "prismarine_stairs":
                     return GetTexture("prismarine"); // data = direction
                 case "spruce_stairs":
-                    return GetTexture("spruce_planks", data);
+                    return GetTexture("spruce_planks");
                 case "birch_stairs":
-                    return GetTexture("birch_planks", data);
+                    return GetTexture("birch_planks");
                 case "acacia_stairs":
-                    return GetTexture("acacia_planks", data);
+                    return GetTexture("acacia_planks");
                 case "dark_oak_stairs":
-                    return GetTexture("dark_oak_planks", data);
+                    return GetTexture("dark_oak_planks");
                 case "nether_brick_stairs":
-                    return GetTexture("nether_brick", data);
+                    return GetTexture("nether_brick");
                 case "sandstone_stairs":
-                    return GetTexture("sandstone_top", data);
+                    return GetTexture("sandstone_top");
                 case "normal_stone_stairs":
-                    return GetTexture("stone", data);
+                    return GetTexture("stone", 0);
                 case "jungle_stairs":
-                    return GetTexture("planks", data);
+                    return GetTexture("jungle_planks");
                 case "stone_brick_stairs":
                     return GetTexture("stonebrick");
                 case "stone_stairs":
@@ -353,7 +353,7 @@ namespace Maploader.Renderer.Texture
                 case "end_brick_stairs":
                     return GetTexture("end_bricks", data);
                 case "smooth_quartz_stairs":
-                    return GetTexture("stair_quartz_block_top", data);
+                    return GetTexture("stair_smooth_quartz_block", data);
 
                 case "cauldron":
                     return GetTexture("cauldron_inner", data)
@@ -403,6 +403,8 @@ namespace Maploader.Renderer.Texture
                 case "detector_rail":
                     return RenderRail("rail_detector", "rail_detector_powered", data);
 
+                case "stonebrick":
+                    return GetTexture("stonebrick", StoneBrickIndexes[(string)data["stone_brick_type"]]);
                 case "monster_egg":
                     return GetTexture("monster_egg", MonsterEggIndexes[(string)data["monster_egg_stone_type"]]);
 
@@ -701,7 +703,19 @@ namespace Maploader.Renderer.Texture
                     return GetTexture("melon_top", data);
 
                 case "quartz_block":
-                    return GetTexture("quartz_block_top", data);
+                {
+                    switch ((string)data.GetValueOrDefault("chisel_type", "default"))
+                    {
+                        case "chiseled":
+                            data["val"] = 1; break;
+                        case "lines":
+                            data["val"] = 2; break;
+                        case "smooth":
+                            data["val"] = 3; break;
+                    }
+                    return RenderPillar("quartz_block_top", "quartz_block_side", data);
+                }
+
                 case "seaLantern":
                     return GetTexture("sea_lantern", data);
                 case "purpur_block":
@@ -1039,7 +1053,7 @@ namespace Maploader.Renderer.Texture
                 case "calcite":
                     return GetTexture("calcite");
                 case "chorus_flower":
-                    return GetTexture("chorus_flower");
+                    return GetTexture("chorus_flower", (int)data["age"] > 4 ? 1 : 0);
                 case "crimson_button":
                     return RenderButton(data, "crimson_planks");
                 case "crimson_double_slab":
@@ -1125,6 +1139,8 @@ namespace Maploader.Renderer.Texture
 
                 case "chain":
                     return RenderChain(data);
+                case "end_rod":
+                    return RenderEndRod(data);
 
                 // Caves & Cliffs Update: Part 1 (1.17)
                 case "waxed_oxidized_cut_copper_stairs":
@@ -1642,29 +1658,79 @@ namespace Maploader.Renderer.Texture
             try
             {
                 int dir = (int)data["facing_direction"];
+                TextureStack head = GetTexture(filename, 0);
 
                 switch(dir)
                 {
                     case 0:
                         // intentional fall-through
                     case 1:
-                        return GetTexture(filename, data).Translate(new Rect(0,0,4,4), new Rect(6,6,4,4));
+                        return head.Translate(new Rect(0,0,4,4), new Rect(6,6,4,4)).Rotate(RotateFlip.Rotate180FlipNone);
+                }
+
+                head = head.Translate(new Rect(0,0,4,4), new Rect(6,12,4,4));
+                TextureStack body = GetTexture(filename, 0).Translate(new Rect(0,4,2,12), new Rect(7,4,2,12));
+                switch(dir)
+                {
                     case 2:
-                        return GetTexture(filename, 0).Translate(new Rect(0,0,4,16), new Rect(6,1,4,15)).Rotate(RotateFlip.RotateNoneFlipNone);
+                        // head rotation is opposite to body
+                        return body.Rotate(RotateFlip.RotateNoneFlipNone) + head.Rotate(RotateFlip.Rotate180FlipNone);
                     case 3:
-                        return GetTexture(filename, 0).Translate(new Rect(0,0,4,16), new Rect(6,1,4,15)).Rotate(RotateFlip.Rotate180FlipNone);
+                        return body.Rotate(RotateFlip.Rotate180FlipNone) + head.Rotate(RotateFlip.RotateNoneFlipNone);
                     case 4:
-                        return GetTexture(filename, 0).Translate(new Rect(0,0,4,16), new Rect(6,1,4,15)).Rotate(RotateFlip.Rotate270FlipNone);
+                        return body.Rotate(RotateFlip.Rotate270FlipNone) + head.Rotate(RotateFlip.Rotate90FlipNone);
                     case 5:
-                        return GetTexture(filename, 0).Translate(new Rect(0,0,4,16), new Rect(6,1,4,15)).Rotate(RotateFlip.Rotate90FlipNone);
+                        return body.Rotate(RotateFlip.Rotate90FlipNone) + head.Rotate(RotateFlip.Rotate270FlipNone);
                 }
             }
             catch 
             {
-                Console.WriteLine("Invalid " + filename +" direction");
+                Console.WriteLine("Invalid " + filename + " direction");
             }
 
-            return GetTexture(filename, data).Translate(new Rect(0,0,4,16), new Rect(6,1,4,15));
+            return GetTexture(filename, data).Translate(new Rect(0,0,4,4), new Rect(6,6,4,4));
+        }
+
+        private TextureStack RenderEndRod (Dictionary<string, Object> data)
+        {
+            string filename = "end_rod";
+            try
+            {
+                int dir = (int)data["facing_direction"];
+
+                switch(dir)
+                {
+                    case 0:
+                        // down -> base
+                        return GetTexture(filename).Translate(new Rect(2,2,4,4), new Rect(6,6,4,4));
+                    case 1:
+                        // up -> base + tip
+                        return GetTexture(filename).Translate(new Rect(2,2,4,4), new Rect(6,6,4,4))
+                            + GetTexture(filename).Translate(new Rect(2,0,2,2), new Rect(7,7,2,2));
+                }
+
+                TextureStack head = GetTexture(filename).Translate(new Rect(2,6,4,1), new Rect(6,0,4,1));
+                TextureStack body = GetTexture(filename).Translate(new Rect(0,0,2,15), new Rect(7,1,2,15));
+                RotateFlip rot = RotateFlip.RotateNoneFlipNone;
+                switch(dir)
+                {
+                    case 2:
+                        rot = RotateFlip.RotateNoneFlipNone; break;
+                    case 3:
+                        rot = RotateFlip.Rotate180FlipNone; break;
+                    case 4:
+                        rot = RotateFlip.Rotate270FlipNone; break;
+                    case 5:
+                        rot = RotateFlip.Rotate90FlipNone; break;
+                }
+                return body.Rotate(rot) + head.Rotate(rot);
+            }
+            catch 
+            {
+                Console.WriteLine("Invalid " + filename + " direction");
+            }
+
+            return GetTexture(filename).Translate(new Rect(2,2,4,4), new Rect(6,6,4,4));
         }
 
         private TextureStack RenderItemFrame (Dictionary<string, Object> data, string texture)
@@ -1783,7 +1849,7 @@ namespace Maploader.Renderer.Texture
         }
         private RotateFlip RotateFromDirection (int direction)
         {
-            switch (direction)
+            switch (Math.Abs(direction % 4))
             {
                 case 0:
                     return RotateFlip.Rotate180FlipNone;
@@ -1979,6 +2045,14 @@ namespace Maploader.Renderer.Texture
             {"cracked_stone_brick",  3},
             {"chiseled_stone_brick", 4},
             {"stone",                5},
+        };
+
+        static private readonly Dictionary<string, int> StoneBrickIndexes = new Dictionary<string, int>()
+        {
+            {"default",  0},
+            {"mossy",    1},
+            {"cracked",  2},
+            {"chiseled", 3},
         };
 
         static private readonly Dictionary<int, int> GrowthEightToFour = new Dictionary<int, int>()
